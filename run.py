@@ -42,12 +42,13 @@ class RunTask:
         yield_data_path: str, default='data/yield_data.csv'
             A path to the yield data
         """
+        
         yield_data_path = Path(yield_data_path)
         exporter = MODISExporter(locations_filepath=yield_data_path)
         exporter.export_all(
             export_limit, major_states_only, check_if_done, download_folder
         )
-
+    
     @staticmethod
     def process(
         mask_path="data/crop_yield-data_mask",
